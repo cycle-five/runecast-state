@@ -93,7 +93,7 @@ impl AppState {
     pub fn player_state(&mut self, player_id: i64) -> &mut PlayerState {
         self.player_states
             .entry(player_id)
-            .or_insert_with(PlayerState::new)
+            .or_default()
     }
 
     /// Get player state if exists.

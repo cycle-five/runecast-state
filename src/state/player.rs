@@ -38,8 +38,10 @@ use std::fmt;
 
 /// Player's current location/state in the system.
 #[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Default)]
 pub enum PlayerLocation {
     /// Not connected to any WebSocket
+    #[default]
     Disconnected,
 
     /// Connected but not in any lobby
@@ -55,11 +57,6 @@ pub enum PlayerLocation {
     Spectating { lobby_id: String, game_id: String },
 }
 
-impl Default for PlayerLocation {
-    fn default() -> Self {
-        Self::Disconnected
-    }
-}
 
 impl PlayerLocation {
     /// Check if player is connected (any state except Disconnected).

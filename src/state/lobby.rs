@@ -10,18 +10,15 @@ pub const MAX_LOBBY_PLAYERS: usize = 6;
 
 /// Lobby types.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Default)]
 pub enum LobbyType {
     /// Tied to a Discord channel
+    #[default]
     Channel,
     /// Custom lobby with shareable code
     Custom,
 }
 
-impl Default for LobbyType {
-    fn default() -> Self {
-        Self::Channel
-    }
-}
 
 /// A player's state within a lobby.
 #[derive(Debug, Clone)]
